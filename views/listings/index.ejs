@@ -1,0 +1,194 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <!-- <h3>All the listing</h3> -->
+     <style>
+         #filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter {
+            text-align: center;
+            margin-top: 2rem;
+            margin-right: 1rem;
+            opacity: 0.7;
+            transition: all 0.25s ease;
+
+        }
+        .filter:hover{
+            opacity:1;
+            cursor: pointer;
+            color: #4f22ca; /* purple */
+            transform: translateY(-3px);
+        }
+
+        .filter p {
+            font-size: 0.8rem;
+        }
+
+        .tax-info {
+            display: none;
+        }
+
+        .tax-toggle {
+            border: 1px solid  var(--border-color);
+            border-radius: 1rem;
+            height: 3.25rem;
+            padding: 1rem;
+            margin-left: 3rem;
+            background-color: var(--card-bg); /* background adapts to theme */
+            color: var(--text-color);         /* text adapts to theme */
+            display: flex;
+            align-items: center; /* center content vertically */
+            justify-content: center; /* center content horizontally if needed */
+            
+        }
+        .filter-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .filter i {
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .filter:hover i {
+           color: #4f22ca;
+            transform: scale(1.15);
+        }
+
+
+
+     </style>
+
+    <div id="filters">
+        <a href="/listings?category=trending" class="filter-link"></a>
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        </a>
+        <a href="/listings?category=room" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Room</p>
+        </div>
+        </a>
+        <a href="/listings?category=iconic" class="filter-link">
+         <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>iconic city</p>
+        </div>
+        </a>
+        <a href="/listings?category=mountain" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>mountain</p>
+        </div>
+        </a>
+        <a href="/listings?category=castle" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>castles</p>
+        </div>
+        </a>
+        <a href="/listings?category=pool" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>amazing pools</p>
+        </div>
+        </a>
+        <a href="/listings?category=camping" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>camping</p>
+        </div>
+        </a>
+        <a href="/listings?category=farm" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>farms</p>
+        </div>
+        </a>
+        <a href="/listings?category=artic" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>arctic</p>
+        </div>
+        </a>
+        <a href="/listings?category=dome" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p>Domes</p>
+        </div>
+        </a>
+        <a href="/listings?category=boat" class="filter-link">
+        <div class="filter">
+            <div><i class="fa-solid fa-ferry"></i></div>
+            <p>Boats</p>
+        </div>
+        </a>
+
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">Display Total after Taxes</label>
+            </div>
+        </div>
+
+    </div>
+
+     
+    <!-- <form method="get" action="/listings/new">
+        <button>create new listing</button>
+     </form> --> <!-- no need of button we are added in navbar -->
+     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let listing of allListings) {%>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card col listing-card" >
+                    <img 
+                        src="<%= listing.image.url %>"
+                        onerror="this.src='https://images.unsplash.com/photo-1505691723518-36a5ac3be353?q=80&w=800&auto=format&fit=crop';"
+                        class="card-img-top"
+                        alt="listing_image"
+                        style="height: 20rem;"
+                    >
+
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%=listing.title %></b> <br>
+                            &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
+                            <i class="tax-info">&nbsp; &nbsp; +18% GST </i>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+     </div>
+    
+
+    <!-- <ul>
+    <% for(let listing of allListings) {%>
+        <li><a href="/listings/<%= listing._id %>"><%=listing.title %></a></li>
+    <% } %>
+    </ul> -->
+</body>
+
+<script>
+    let taxSwitch = document.getElementById("switchCheckDefault");
+    taxSwitch.addEventListener("click" , () =>{
+        let taxInfo = document.getElementsByClassName("tax-info");
+        // console.log(taxInfo);// in all listing have tAXinfo for that we have to add loop
+        for(info of taxInfo){
+            if(info.style.display != "inline"){
+                info.style.display = "inline";
+            }else{
+                info.style.display = "none";
+            }
+            
+        }
+    })
+</script>
+
+

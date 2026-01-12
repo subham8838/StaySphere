@@ -1,0 +1,282 @@
+ body{
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} 
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+
+}
+.fa-house{
+    color: #fe424d !important;
+    font-size: 2rem;
+}
+/* !important because by default it using bootstrap style for become overpower */
+.nav-link{
+    color: #222222 !important; 
+}
+/* footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #222222;
+}
+.f-info-links , .f-info-socials ,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.f-info-socials {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    
+}
+
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+/* card bootstrap */
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* card effect */
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+ /* new page */
+.add-btn{
+    background-color: #4f22ca !important;
+    border: none !important;
+
+}
+
+/* edit button */
+/* .edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+
+} */
+
+
+/* show page */
+
+.show-img{
+    height: 30vh;
+
+}
+
+.btns{
+    display: flex;
+}
+
+
+/* map */
+#map { 
+    height: 400px;
+    weight:80px;
+}
+
+/* day-night */
+/* Light Theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --border-color: #ddd;  /* light mode borders */
+  --card-shadow: 0 8px 24px rgba(79, 34, 202, 0.35);
+}
+
+/* Dark Theme */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --nav-bg: #1c1c1c;
+  --border-color: #444;  /* dark mode borders */
+  --card-shadow: 0 8px 24px rgba(79, 34, 202, 0.5);
+}
+
+/* Apply colors globally */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Navbar */
+.navbar,
+.navbar * {
+  color: var(--text-color) !important;
+}
+
+.navbar a {
+  color: var(--text-color) !important;
+}
+
+/* Icons (Font Awesome) */
+i,
+.fa,
+.fa-solid,
+.fa-regular {
+  color: var(--text-color) !important;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Buttons */
+.btn {
+  color: var(--text-color);
+}
+
+/* Forms */
+.form-control {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid #555;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: var(--bg-color) !important;
+}
+
+.container,
+.row {
+  background-color: transparent !important;
+}
+
+/* Navbar */
+.bg-body-light,
+.navbar {
+  background-color: var(--nav-bg) !important;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg) !important; /* dark bg */
+  color: var(--text-color) !important;         /* light text */
+  border: 1px solid #333 !important;          /* dark border in night mode */
+  border-radius: 1rem !important;             /* keep rounded corners */
+   box-shadow: var(--card-shadow) !important;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+.navbar .fa-house {
+  color: #4f22ca !important;
+}
+
+.container {
+  background-color: transparent !important; /* Let body bg show */
+  color: var(--text-color) !important;
+}
+/* footer */
+
+/* Footer base */
+.bg-body-light,
+.f-info {
+  background-color: var(--nav-bg) !important;
+  color: var(--text-color) !important;
+  border-top: 1px solid rgba(79, 34, 202, 0.25);
+  padding: 1.5rem 1rem;
+}
+
+/* Dark mode footer */
+body.dark .f-info {
+  border-top: 1px solid rgba(79, 34, 202, 0.4);
+}
+
+/* Footer links */
+.f-info-links a {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+  text-decoration: none;
+  opacity: 0.75;
+  margin-right: 1rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.f-info-links a:hover {
+  opacity: 1;
+  color: #4f22ca !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Social icons */
+.f-info-socials i {
+  transition: transform 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+.f-info-socials i:hover {
+  color: #4f22ca !important;
+  transform: scale(1.15);
+}
