@@ -100,7 +100,7 @@ module.exports.editListing = async (req,res) =>{
 
 module.exports.updateListing = async (req,res) =>{
     if(!req.body.listing){ // if the listing body is not there 
-        throw new expressError(400,"send valid data for listing")  // 400 = bad request
+        throw new ExpressError(400,"send valid data for listing")  // 400 = bad request
     }
     let {id} = req.params;
     let listing = await Listing.findByIdAndUpdate(id,{...req.body.listing});

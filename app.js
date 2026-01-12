@@ -14,7 +14,7 @@ const path = require("path")
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate")
 // const wrapAsync = require("./utils/WrapAsync.js"); // this code is their in routes folder where we link
-// const expressError = require("./utils/ExpressError.js");
+// const ExpressError = require("./utils/ExpressError.js");
 // const {listingSchema , reviewSchema} = require("./schema.js"); // joi
 const Review = require("./models/review.js")
 // express router
@@ -285,7 +285,7 @@ app.use("/", userRouter);
 
 // 404 error handler
 app.use((req,res,next) =>{
-    next(new expressError(404,"page not found !"));
+    next(new ExpressError(404,"page not found !"));
 });
 
 // error handler middleware
