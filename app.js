@@ -283,6 +283,12 @@ app.use("/listings/:id/reviews", reviewsRouter);
 // user router we can use 
 app.use("/", userRouter);
 
+// home page
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
+
 
 // 404 error handler
 app.use((req,res,next) =>{
